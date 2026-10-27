@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Sambit — voice budget tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -10,41 +10,27 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<main>
-  <header>
-    <div class="brand"><span class="dot"></span>Sambit</div>
-    <div id="month" class="muted"></div>
-  </header>
-
-  <section class="card add">
+<div class="app" id="app">
+  <div class="scroll" id="scroll">
+    <section class="view" id="v-home"></section>
+    <section class="view" id="v-wallet"></section>
+    <section class="view" id="v-plan"></section>
+    <section class="view" id="v-history"></section>
+  </div>
+  <nav class="tabs" id="tabs"></nav>
+  <div class="toast" id="toast"></div>
+  <div class="dim" id="dim"></div>
+  <form class="sheet" id="form">
+    <div class="grab"></div>
     <h2>Quick add</h2>
-    <form id="form">
-      <button type="button" id="mic" class="mic" aria-label="Log expense by voice">
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>
-      </button>
+    <div class="line">
+      <button type="button" id="mic" class="mic" aria-label="Log by voice"></button>
       <input id="text" autocomplete="off" placeholder="Say or type an expense">
-      <button class="btn">Add</button>
-    </form>
+    </div>
     <div id="preview" class="preview muted">Tap the mic and speak, or type a sentence.</div>
-  </section>
-
-  <section class="card total">
-    <div class="muted">Spent this month</div>
-    <div id="total" class="big"></div>
-    <div class="bar"><div id="fill"></div></div>
-    <div class="row muted"><span id="pct"></span><button id="budgetBtn" class="link"></button></div>
-  </section>
-
-  <section class="card cats">
-    <h2>By category</h2>
-    <div id="chart"></div>
-  </section>
-
-  <section class="card recent">
-    <h2>Recent transactions</h2>
-    <ul id="list"></ul>
-  </section>
-</main>
+    <div class="line"><select id="acct"></select><button class="btn">Add</button></div>
+  </form>
+</div>
 <script src="app.js"></script>
 </body>
 </html>
